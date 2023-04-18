@@ -20,6 +20,8 @@ ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 ssh.connect(hostname=ssh_host, username=ssh_user, key_filename=ssh_private_key)
 
 
+stdin, stdout, stderr=ssh.exec_command('mkdir jason')
+print(stdout.readlines())
 stdin, stdout, stderr=ssh.exec_command(f"echo{docker_pwd} | docker login {docker_registry} --username {docker_user} --password-stdin")
 print(stdout.readlines())
 
