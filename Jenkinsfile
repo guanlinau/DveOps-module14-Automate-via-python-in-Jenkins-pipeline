@@ -28,7 +28,8 @@ pipeline {
                     def tags_list=image_versions.split('\n') as List
                     version_to_deploy = input message:"Select version to deploy", ok:"Deploy", parameters:[choice(name:'Select version', choices: tags_list)]
                     echo "something"
-                    env.DOCKER_IMAGE="${ECR_REGISTRY}/{ECR_REPO_NAME}:{version_to_deploy}"
+                    echo version_to_deploy
+                    env.DOCKER_IMAGE="${ECR_REGISTRY}/${ECR_REPO_NAME}:${version_to_deploy}"
                     echo env.DOCKER_IMAGE
                 }
             }
