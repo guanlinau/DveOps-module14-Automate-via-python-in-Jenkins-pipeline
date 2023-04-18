@@ -56,6 +56,16 @@ pip install requests
 "ssh-creds" - SSH Username with private key
 "ecr-repo-pwd" - Secret Text
 ```
-3-Install ssh agent plugin in Jenkins UI
 
-###### Step3: 
+###### Step3: Write fetch-image logic by python
+
+###### Step 4: Write deploy logic by python
+
+###### Step 5: Write validate logic by python
+
+###### Step 6: Write Jenkinsfile 
+
+###### Step 7: Build via Jenkins UI
+ ![image](images/Screenshot%202023-04-18%20at%203.37.20%20pm.png)
+![image](images/Screenshot%202023-04-18%20at%203.37.39%20pm.png)
+![image](images/Screenshot%202023-04-18%20at%203.41.03%20pm.png)
