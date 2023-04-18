@@ -24,7 +24,7 @@ pipeline {
             steps{
                 script{
                     echo "fetching available images version from ecr repo"
-                    def image_versions= sh(script:'python3 fetch-images.py', returnStdout:True).trim()
+                    def image_versions= sh(script:'python3 fetch-images.py', returnStdout:true).trim()
                     def tags_list=image_versions.split('\n') as List
                     version_to_deploy = input message:"Select version to deploy", ok:"Deploy", parameters:[choice(name:'Select version', choices: tags_list)]
                     echo "something"
@@ -38,7 +38,7 @@ pipeline {
             steps{
                 script{
                     echo"deploying docker image to ec2 instance server"
-                    def result = sh(script:"python3 deploy.py", returnStdout=True).trim()
+                    def result = sh(script:"python3 deploy.py", returnStdout:true).trim()
                     echo result
                 }
             }
@@ -47,7 +47,7 @@ pipeline {
             steps{
                 script{
                     echo "validating that the application was successfully deployed!"
-                    def result=sh(script:"python3 validation-application.py", returnStdout=True).trim()
+                    def result=sh(script:"python3 validation-application.py", returnStdout:true).trim()
                     echo result
                 }
             }
