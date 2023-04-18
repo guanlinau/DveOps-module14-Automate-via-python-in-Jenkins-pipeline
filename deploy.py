@@ -22,10 +22,11 @@ ssh.connect(hostname=ssh_host, username=ssh_user, key_filename=ssh_private_key)
 
 stdin, stdout, stderr=ssh.exec_command('mkdir jason')
 print(stdout.readlines())
-stdin, stdout, stderr=ssh.exec_command(f"echo{docker_pwd} | docker login {docker_registry} --username {docker_user} --password-stdin")
+stdin, stdout, stderr=ssh.exec_command(f"echo {docker_pwd} | docker login {docker_registry} --username {docker_user} --password-stdin")
 print(stdout.readlines())
+print("out")
 
-stdin, stdout, stderr=ssh.exec_command(f"docker run -d -p {host_port}:{container_port} {docker_image}")
+stdin, stdout, stderr=ssh.exec_command(f"docker run -p {host_port}:{container_port} -d {docker_image}")
 print(stdout.readlines())
-
+print("something")
 ssh.close()
