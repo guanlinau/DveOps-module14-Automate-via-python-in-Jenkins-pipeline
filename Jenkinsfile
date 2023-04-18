@@ -26,7 +26,8 @@ pipeline {
                     echo "fetching available images version from ecr repo"
                     def image_versions= sh(script:'python3 fetch-images.py', returnStdout:True).trim()
                     def tags_list=image_versions.split('\n') as List
-                    version_to_deploy = input message:"Select version to deploy", ok:"Deploy", parameters:[choice(name:'Select version', choices: image_versions)]
+                    version_to_deploy = input message:"Select version to deploy", ok:"Deploy", parameters:[choice(name:'Select version', choices: tags_list)]
+                    echo "something"
                     env.DOCKER_IMAGE="${ECR_REGISTRY}/{ECR_REPO_NAME}:{version_to_deploy}"
                     echo env.DOCKER_IMAGE
                 }
