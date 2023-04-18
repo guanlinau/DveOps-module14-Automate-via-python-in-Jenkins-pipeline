@@ -12,7 +12,7 @@ pipeline {
         HOST_PORT='8080'
         AWS_DEFAULT_REGION = 'ap-southeast-2' 
 
-        SSH_KEY_FILE=credentials('jenkins_aws_private_key_pairs')
+        SSH_KEY_FILE=credentials('ec2-private-key')
         DOCKER_PWD=credentials('aws_ecr_repo_pwd')
         AWS_ACCESS_KEY_ID = credentials('aws_access_key_id')
         AWS_SECRET_ACCESS_KEY = credentials('aws_secret_access_key')
